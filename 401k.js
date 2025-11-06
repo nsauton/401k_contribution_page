@@ -56,13 +56,18 @@ config.setup = function() {
         const currAge = 30;
         const retireAge = 65;
         const interval = 5;
+        const firstYear = totalYTD.value + (2 * currContribution.value);
 
         const savings = [];
         for (let age = currAge ; age <= retireAge ; age += interval) {
             //calculate the savings for this age and then push to savings
-            const years = age - currAge;
-            const total = (totalYTD.value + (2 * currContribution.value)) * years
-            savings.push({age, money: total})
+            if (age == currAge) {
+                savings.push({age, money: firstYear});
+            } else {
+                const years = age - currAge;
+                const total = firstYear + ((currContribution.value * 12) * (years - 1))
+                savings.push({age, money: total})
+            }
         }
 
         return savings;
