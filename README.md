@@ -20,6 +20,7 @@ This project allows users to do the following:
 - add graphs to visually display rather than just numbers in a table  
 - incorporate employer contributions to the 401k  
 - use compounding interest for consecutive months/years instead of just a linear number  
+- remove hardcoded values for age, salary, and past contributions and replace them with user input
 
 ## Files
 server.py - allows many kinds of files to be run locally and accessed from a web browser  

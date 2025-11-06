@@ -65,7 +65,7 @@ config.setup = function() {
                 savings.push({age, money: firstYear});
             } else {
                 const years = age - currAge;
-                const total = firstYear + ((currContribution.value * 12) * (years - 1))
+                const total = firstYear + ((currContribution.value * 12) * years)
                 savings.push({age, money: total})
             }
         }
