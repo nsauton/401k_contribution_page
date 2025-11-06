@@ -1,5 +1,6 @@
 # 401k_contribution_page
 A single-page web application that provides a clear and intuitive interface for a user to manage their 401(k) contribution  
+This web app utilizes the bulma css library for styling  
   
 This project allows users to do the following:  
 - contribute to their 401k with a specific dollar amount of their paycheck or a percentage of their paycheck  

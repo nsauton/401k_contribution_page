@@ -10,61 +10,76 @@
 <body>
     <div id="app" class="section">
         <div class="content">
-            <h1>401k Contribution Page</h1>
+            <h1 class="has-background-primary has-text-black p-5">
+                401k Contribution Page
+            </h1>
 
             <div class="columns">
 
                 <!--the column is for the user selecting the amount to put towards the 401k-->
                 <div class="column is-one-third">
-                    <h4>Salary</h4>
-                    <p>Yearly: {{ salary }}</p>
-                    <p>Monthly: {{ Math.round(salary/12) }}</p>
-
-                    <h4>Contribution Type</h4>
-                    <div class="control">
-                        <label class="radio">
-                            <input 
-                                type="radio" 
-                                name="contribution type" 
-                                value="dollar" 
-                                v-model="contributionType" 
-                            />
-                            dollar
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="contribution type" value="percentage" v-model="contributionType" />
-                            percentage
-                        </label>
+                    <div class="block">
+                        <h4>Salary</h4>
+                        <p>Yearly: {{ salary }}</p>
+                        <p>Monthly: {{ Math.round(salary/12) }}</p>
                     </div>
 
-                    <h4>Contribution Amount</h4>
-                    <!--text box with the number-->
-                    <div class="field" style="width: 200px;">
-                        <div class="control has-icons-left">
-                            <input
-                                class="input"
-                                type="number"
+                    <div class="block">
+                        <h4>Contribution Type</h4>
+                        <div class="control">
+                            <div>
+                                <label class="radio">
+                                    <input 
+                                        type="radio" 
+                                        name="contribution type" 
+                                        value="dollar" 
+                                        v-model="contributionType" 
+                                    />
+                                    dollar
+                                </label>
+                            </div>
+                            <div>
+                                <label class="radio">
+                                    <input 
+                                        type="radio" 
+                                        name="contribution type" 
+                                        value="percentage" 
+                                        v-model="contributionType" 
+                                    />
+                                    percentage
+                                </label>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="block">
+                        <h4>Contribution Amount</h4>
+                        <div class="field" style="width: 200px;">
+                            <div class="control has-icons-left">
+                                <input
+                                    class="input"
+                                    type="number"
+                                    v-model.number="contributionAmount"
+                                    min="0"
+                                    :max="contributionType === 'dollar' ? Math.round(salary/12) : 100"
+                                    @keydown.prevent
+                                >
+
+                                <span class="icon is-small is-left" style="pointer-events: none;">
+                                    <strong>{{ contributionType == 'dollar' ? '$' : '%' }}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="range" 
+                                class="slider is-fullwidth is-primary"
                                 v-model.number="contributionAmount"
                                 min="0"
                                 :max="contributionType === 'dollar' ? Math.round(salary/12) : 100"
-                                @keydown.prevent
+                                step="1"
+                                style="width: 200px;"
                             >
-
-                            <span class="icon is-small is-left" style="pointer-events: none;">
-                                <strong>{{ contributionType == 'dollar' ? '$' : '%' }}</strong>
-                            </span>
                         </div>
-                    </div>
-                    <!--slider for textbox-->
-                    <div>
-                        <input type="range" 
-                            class="slider is-fullwidth is-primary"
-                            v-model.number="contributionAmount"
-                            min="0"
-                            :max="contributionType === 'dollar' ? Math.round(salary/12) : 100"
-                            step="1"
-                            style="width: 200px;"
-                        >
                     </div>
                 </div>
 

@@ -9,7 +9,7 @@ config.setup = function() {
     let contributionType = ref('dollar');
     let contributionAmount = ref(0);
 
-    //hardcoded values
+    //hardcoded salary and contribution history values
     const salary = ref(80000);
     const contributionHistory = ref([
         { month: "January", amount: 400 },
@@ -24,7 +24,7 @@ config.setup = function() {
         { month: "October", amount: 500 },
     ]);
 
-    //reset amount to 0 whenever the type is changed
+    //correctly change the contribution amount between dollar and percentage
     watch(contributionType, () => {
         if (contributionType.value == 'dollar') {
             //convert percentage to dollar amount
@@ -35,13 +35,14 @@ config.setup = function() {
         }
     });
 
-    //calculated w/ input values
+    //calculates the current contribution based on if its already a number or a percentage
     const currContribution = computed(() => {
         return contributionType.value === 'dollar' 
             ? contributionAmount.value 
             : Math.round((salary.value/12) * (contributionAmount.value/100));
     })
 
+    //calculates the sum of the contribution history
     const totalYTD = computed(() => {
         let sum = 0
         for (let i=0 ; i<contributionHistory.value.length ; i++) {
@@ -50,6 +51,7 @@ config.setup = function() {
         return sum;
     })
 
+    //calculates potential savings for many years in the future
     const savingsProjection = computed(() => {
         const currAge = 30;
         const retireAge = 65;
