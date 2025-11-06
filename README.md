@@ -8,6 +8,8 @@ This project allows users to do the following:
 - view year-to-date contributions alongside the  contributions for future months  
 - view projected savings for years to come until retirement  
   
+Video demo link: https://youtu.be/G0jko-MzXZQ  
+  
 ## How to use
 1. Clone the repository
 2. Run the server.py file ('python3 server.py 0.0.0.0:8080' in the terminal) (8080 can be replaced by whatever port you want to use)  
