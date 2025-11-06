@@ -10,8 +10,8 @@ This project allows users to do the following:
   
 ## How to use
 1. Clone the repository
-2. Run the server.py file ('python3 server.py 0.0.0.0:8080' in the terminal)  
-3. Go to a web browser and use the link 'http://localhost:8080/index.html'  
+2. Run the server.py file ('python3 server.py 0.0.0.0:8080' in the terminal) (8080 can be replaced by whatever port you want to use)  
+3. Go to a web browser and use the link 'http://localhost:8080/index.html' (8080 can be replaced by whatever port you want to use)  
 4. Choose your desired contribution type by selecting either dollar or percentage  
 5. Choose your desired contribution amount (any amount of your monthly salary) by either using the slider or using the arrows in the box  
 5. View how these choices effects your savings  
