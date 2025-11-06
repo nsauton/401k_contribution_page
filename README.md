@@ -21,6 +21,6 @@ This project allows users to do the following:
 ## Files
 server.py - allows many kinds of files to be run locally and accessed from a web browser  
 index.html - the html file of the 401k contribution page  
-401k.js - the script that handles calculations and various varibles for the html file  
+401k.js - the javascript file that handles calculations and various varibles for the 401k contribution page  
 README.md - this file  
   
